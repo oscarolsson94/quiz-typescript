@@ -9,4 +9,6 @@ export const fetchQuizQuestions = async (
   difficulty: Difficulty
 ) => {
   const endpoint = `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=multiple`;
+  const data = await (await fetch(endpoint)).json(); //fetch data and convert to json
+  console.log(data);
 };
