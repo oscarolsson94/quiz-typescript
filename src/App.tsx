@@ -46,11 +46,14 @@ const App = () => {
   return (
     <div className="App">
       <h1>REACT-TS QUIZ</h1>
-      <button className="start" onClick={startTrivia}>
-        Start
-      </button>
-      <p className="score">Score:</p>
-      <p>Loading Questions ...</p>
+      {(gameOver || userAnswers.length === TOTAL_QUESTIONS) && (
+        <button className="start" onClick={startTrivia}>
+          Start
+        </button>
+      )}
+
+      {!gameOver && <p className="score">Score:</p>}
+      {loading && <p>Loading Questions ...</p>}
       {/* <QuestionCard
         questionNr={number + 1}
         totalQuestions={TOTAL_QUESTIONS}
